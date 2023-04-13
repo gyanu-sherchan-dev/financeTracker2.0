@@ -12,6 +12,10 @@ app.use(helmet()); //setting default security headers to protect some attacks
 app.use(cors()); // allow cross origin resources
 app.use(express.json());
 
+//mongodb connection
+import { connectDB } from "./src/config/dbconfig.js";
+connectDB();
+
 //for all the trafic
 app.use("*", (req, res) => {
   res.json({
