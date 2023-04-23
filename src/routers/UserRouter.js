@@ -1,5 +1,5 @@
 import express from "express";
-import { insertUser } from "../models/user/UserModel.js";
+import { insertUser, userLogin } from "../models/user/UserModel.js";
 
 const router = express.Router(); //now I can have any method to handle it
 
@@ -42,7 +42,27 @@ router.post("/", async (req, res, next) => {
     }
   }
 });
-
 //Remeber I need to import this file to server.js to redirect the request to this file so let's export the file
 
+//login user
+router.post("/login", async (req, res, next) => {
+  try {
+    const user = await userLogin(req.body);
+    user._id
+      ? res.json({
+          status: "success",
+          message: "login successful",
+          user: {
+            name: user.name,
+            _id: user._id,
+          },
+        })
+      : res.json({
+          status: "error",
+          message: "login invalid",
+        });
+  } catch (error) {
+    next(error);
+  }
+});
 export default router;

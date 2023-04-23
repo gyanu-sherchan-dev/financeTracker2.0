@@ -6,3 +6,6 @@ export const insertUser = (obj) => {
 };
 
 //Login user
+export const userLogin = (filter) => {
+  return userSchema.findOne(filter);
+};

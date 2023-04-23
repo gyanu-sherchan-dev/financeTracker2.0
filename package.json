@@ -1,12 +1,13 @@
 {
   "name": "api-transaction",
   "version": "1.0.0",
-  "description": "",
+  "description": "This api for our react transaction app which is at `... link to react app repo`",
   "main": "server.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "Gyanu Sherchan",
@@ -17,5 +18,13 @@
     "helmet": "^6.1.5",
     "mongoose": "^7.0.3",
     "morgan": "^1.10.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gyanu-sherchan-dev/financeTracker2.0.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gyanu-sherchan-dev/financeTracker2.0/issues"
+  },
+  "homepage": "https://github.com/gyanu-sherchan-dev/financeTracker2.0#readme"
 }

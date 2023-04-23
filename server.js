@@ -22,10 +22,16 @@ import userRouter from "./src/routers/UserRouter.js";
 app.use("/api/v1/user", userRouter);
 
 //for all the trafic
-app.use("*", (req, res) => {
-  res.json({
-    message: "you are in the wrong place, go back !!",
-  });
+app.use("*", (req, res, next) => {
+  // res.json({
+  //   message: "you are in the wrong place, go back !!",
+  // });
+
+  const error = {
+    status: "error",
+    message: "404 page not found",
+  };
+  next(error);
 });
 
 //global error handler
