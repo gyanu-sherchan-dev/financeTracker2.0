@@ -48,7 +48,7 @@ router.post("/", async (req, res, next) => {
 router.post("/login", async (req, res, next) => {
   try {
     const user = await userLogin(req.body);
-    user._id
+    user?._id
       ? res.json({
           status: "success",
           message: "login successful",
