@@ -29,4 +29,4 @@ const transSchema = new mongoose.Schema(
 
 // now our Schema is ready, lets convert into tabel and export as well.
 
-export default mongoose.model("Trans-v-ii", transSchema);
+export default mongoose.model("TransactionFt2.0", transSchema);
