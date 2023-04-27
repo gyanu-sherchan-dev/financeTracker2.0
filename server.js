@@ -40,6 +40,7 @@ app.use("*", (req, res, next) => {
 
 //global error handler
 app.use((error, req, res, next) => {
+  console.log(error);
   try {
     const code = error.code || 500;
     res.status(code).json({

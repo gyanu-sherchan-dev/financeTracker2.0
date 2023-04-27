@@ -30,10 +30,11 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     const transData = req.body; // receiving data from FE or thunderclient.
+    const { authorization } = req.headers; // receiving or grabing userId from header
 
     //sending data to DB
-    const result = await insertTrans(transData); //here we need to await to response to come
-    console.log(result);
+    const result = await insertTrans({ ...transData, userId: authorization }); //here we need to await to response to come // and sending userId with transData together to DB using spreed operator
+
     result?._id
       ? res.json({
           status: "success",
