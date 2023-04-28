@@ -23,7 +23,8 @@ app.use("/api/v1/user", userRouter);
 
 //transRouter
 import transRouter from "./src/routers/TransRouter.js";
-app.use("/api/v1/transaction", transRouter);
+import { isAuth } from "./src/middlewares/authMiddleware.js";
+app.use("/api/v1/transaction", isAuth, transRouter);
 
 //for all the trafic
 app.use("*", (req, res, next) => {

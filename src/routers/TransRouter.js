@@ -3,6 +3,7 @@ import {
   getUserAllTransactions,
   insertTrans,
 } from "../models/transactions/TransactionModel.js";
+// import { isAuth } from "../middlewares/authMiddleware.js"; // we going to use isAuth in entry point for all method which is in server.js
 
 const router = express();
 
@@ -30,6 +31,7 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     const transData = req.body; // receiving data from FE or thunderclient.
+
     const { authorization } = req.headers; // receiving or grabing userId from header
 
     //sending data to DB
