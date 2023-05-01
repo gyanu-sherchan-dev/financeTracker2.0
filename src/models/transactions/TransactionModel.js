@@ -18,6 +18,10 @@ export const getUserAllTransactions = (filter) => {
 //update
 
 //delete
-
-
-
+export const deleteManyTrans = (ids) => {
+  return TransactionSchema.deleteMany({
+    _id: {
+      $in: ids,
+    },
+  });
+};

@@ -32,14 +32,14 @@ router.post("/", async (req, res, next) => {
     //do not forget to check the database (mongoDB compass)
   } catch (error) {
     //what happen if we try to send same data, duplication error, since we have make email as unique, so to handle this error:
-    console.log(error.message);
-    error.code = 500;
-    next(error); // we going to forward this error to our global error handler, which we have created in server.js
+
+    error.code = 200;
 
     if (error.message.includes("E11000 duplicate key error collection")) {
       error.message =
         "There is already another user with this email, please use different email for your account";
     }
+    next(error); // we going to forward this error to our global error handler, which we have created in server.js
   }
 });
 //Remeber I need to import this file to server.js to redirect the request to this file so let's export the file
