@@ -21,7 +21,7 @@ router.get("/", async (req, res, next) => {
     console.log(trans);
     res.json({
       status: "success",
-      message: "get method to do",
+      message: "fetched transaction successfully",
       trans,
     });
   } catch (error) {
