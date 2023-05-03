@@ -18,7 +18,7 @@ router.get("/", async (req, res, next) => {
     const trans = await getUserAllTransactions({
       userId: authorization, //now this becomes our filter
     });
-    console.log(trans);
+
     res.json({
       status: "success",
       message: "fetched transaction successfully",
